@@ -8,7 +8,7 @@ Plugin for both public & private channels!
 import time, os, asyncio
 
 from .. import bot as Drone
-from .. import userbot, Bot, AUTH, DB_CHANNEL
+from .. import userbot, Bot, AUTH
 from .. import FORCESUB as fs
 from main.plugins.pyroplug import get_bulk_msg
 from main.plugins.helpers import get_link, screenshot
@@ -100,7 +100,7 @@ async def run_batch(userbot, client, sender, link, _range):
             await client.send_message(sender, "Batch completed.")
             break
         try:
-            await get_bulk_msg(userbot, client, sender, link, i)
+            await get_bulk_msg(userbot, client, sender, link, i) 
         except FloodWait as fw:
             if int(fw.x) > 299:
                 await client.send_message(sender, "Cancelling batch since you have floodwait more than 5 minutes.")
